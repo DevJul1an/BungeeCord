@@ -29,7 +29,6 @@ public class ModuleManager
     public ModuleManager()
     {
         knownSources.put( "jenkins", new JenkinsModuleSource() );
-        knownSources.put( "travis-ci", new TravisCiModuleSource() );
     }
 
     @SuppressFBWarnings(
