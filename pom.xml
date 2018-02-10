@@ -51,17 +51,17 @@
     </modules>
 
     <scm>
-        <connection>scm:git:git@github.com:HexagonMC/BungeeCord.git</connection>
-        <developerConnection>scm:git:git@github.com:HexagonMC/BungeeCord.git</developerConnection>
-        <url>git@github.com:HexagonMC/BungeeCord.git</url>
+        <connection>scm:git:git@github.com:DevJul1an/BungeeCord.git</connection>
+        <developerConnection>scm:git:git@github.com:DevJul1an/BungeeCord.git</developerConnection>
+        <url>git@github.com:DevJul1an/BungeeCord.git</url>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/HexagonMC/BungeeCord/issues</url>
+        <url>https://github.com/DevJul1an/BungeeCord/issues</url>
     </issueManagement>
     <ciManagement>
         <system>travis-ci</system>
-        <url>https://travis-ci.org/HexagonMC/BungeeCord</url>
+        <url>https://ci.jumpy91.de/job/MineCord</url>
     </ciManagement>
 
     <distributionManagement>
