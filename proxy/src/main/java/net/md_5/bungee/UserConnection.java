@@ -142,6 +142,10 @@ public final class UserConnection implements ProxiedPlayer
         @Override
         public void sendPacket(DefinedPacket packet)
         {
+            if(packet instanceof PluginMessage) {
+                System.out.println("[UserCon] Channel: " + ((PluginMessage)packet).getTag());
+            }
+        
             ch.write( packet );
         }
     };
