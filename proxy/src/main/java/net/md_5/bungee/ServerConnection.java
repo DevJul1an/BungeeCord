@@ -41,6 +41,8 @@ public class ServerConnection implements Server
     @Override
     public void sendData(String channel, byte[] data)
     {
+        System.out.println("Channel: " + channel);
+    
         unsafe().sendPacket( new PluginMessage( channel, data, forgeServer ) );
     }
 
