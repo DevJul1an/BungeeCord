@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 import net.md_5.bungee.protocol.MinecraftInput;
 import net.md_5.bungee.protocol.AbstractPacketHandler;
 import net.md_5.bungee.protocol.ProtocolConstants;
@@ -32,7 +33,7 @@ public class PluginMessage extends DefinedPacket
         }
     };
     //
-    private String tag;
+    @Getter private String tag;
     private byte[] data;
 
     /**
