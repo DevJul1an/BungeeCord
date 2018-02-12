@@ -10,7 +10,7 @@
 
     <name>BungeeCord-Parent</name>
     <description>Parent project for all BungeeCord modules.</description>
-    <url>https://github.com/HexagonMC/BungeeCord</url>
+    <url>https://github.com/DevJul1an/BungeeCord</url>
     <inceptionYear>2012</inceptionYear>
     <organization>
         <name>SpigotMC</name>
@@ -60,7 +60,7 @@
         <url>https://github.com/DevJul1an/BungeeCord/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>travis-ci</system>
+        <system>jenkins</system>
         <url>https://ci.jumpy91.de/job/MineCord</url>
     </ciManagement>
 
