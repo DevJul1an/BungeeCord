@@ -606,7 +606,11 @@ public class BungeeCord extends ProxyServer
 
     public PluginMessage registerChannels()
     {
-        return new PluginMessage( "REGISTER", Util.format( pluginChannels, "\00" ).getBytes( Charsets.UTF_8 ), false );
+         String string =  Util.format( pluginChannels, "\00" );
+    
+         System.out.println(string);
+    
+        return new PluginMessage( "REGISTER", string.getBytes( Charsets.UTF_8 ), false );
     }
 
     @Override
