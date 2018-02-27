@@ -57,7 +57,7 @@ public class Configuration implements ProxyConfig
     private boolean ipForward;
     private Favicon favicon;
     private int compressionThreshold = 256;
-    private String customServerName = "MineCord";
+    private String customServerName = "HexaCord";
     private boolean alwaysHandlePackets = false;
     private boolean preventProxyConnections;
 
@@ -87,7 +87,7 @@ public class Configuration implements ProxyConfig
         throttle = adapter.getInt( "connection_throttle", throttle );
         ipForward = adapter.getBoolean( "ip_forward", ipForward );
         compressionThreshold = adapter.getInt( "network_compression_threshold", compressionThreshold );
-        customServerName = adapter.getString( "custom_server_name", customServerName );
+        customServerName = adapter.getString( "custom_server_name", "HexaCord" );
         alwaysHandlePackets = adapter.getBoolean( "always_handle_packets", false );
         preventProxyConnections = adapter.getBoolean( "prevent_proxy_connections", preventProxyConnections );
 
@@ -155,8 +155,8 @@ public class Configuration implements ProxyConfig
         return customServerName;
     }
 
-	@Override
-	public boolean getAlwaysHandlePackets() {
+    @Override
+    public boolean getAlwaysHandlePackets() {
         return alwaysHandlePackets;
-	}
+    }
 }

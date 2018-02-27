@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Getter;
 import net.md_5.bungee.protocol.MinecraftInput;
 import net.md_5.bungee.protocol.AbstractPacketHandler;
 import net.md_5.bungee.protocol.ProtocolConstants;
@@ -33,7 +32,7 @@ public class PluginMessage extends DefinedPacket
         }
     };
     //
-    @Getter private String tag;
+    private String tag;
     private byte[] data;
 
     /**
@@ -80,7 +79,7 @@ public class PluginMessage extends DefinedPacket
     {
         return new DataInputStream( new ByteArrayInputStream( data ) );
     }
-    
+
     public MinecraftInput getMCStream()
     {
         return new MinecraftInput( Unpooled.wrappedBuffer( data ) );
