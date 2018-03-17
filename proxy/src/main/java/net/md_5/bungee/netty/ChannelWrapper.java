@@ -55,12 +55,6 @@ public class ChannelWrapper
         {
             if ( packet instanceof PacketWrapper )
             {
-                DefinedPacket dPacket = ((PacketWrapper)packet).getPacket();
-                
-                if(dPacket instanceof PluginMessage) {
-                    System.out.println("[ChannelWrapper] Channel: " + ((PluginMessage)dPacket).getTag());
-                }
-                
                 ( (PacketWrapper) packet ).setReleased( true );
                 ch.writeAndFlush( ( (PacketWrapper) packet ).buf, ch.voidPromise() );
             } else
