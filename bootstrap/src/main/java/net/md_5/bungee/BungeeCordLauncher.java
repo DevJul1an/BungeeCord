@@ -1,6 +1,7 @@
 package net.md_5.bungee;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -59,25 +60,20 @@ public class BungeeCordLauncher
                 
                 try
                 {
-                    URL api = new URL( "https://api.github.com/repos/HexagonMC/BungeeCord/releases/latest" );
+                    URL api = new URL( "https://ci.jumpy91.de/job/MineCord/lastSuccessfulBuild/buildNumber" );
                     URLConnection con = api.openConnection();
                     // 15 second timeout at various stages
                     con.setConnectTimeout( 15000 );
                     con.setReadTimeout( 15000 );
                     
-                    String tagName = null;
-                    
                     try
                     {
-                        JsonObject json = new JsonParser().parse( new InputStreamReader( con.getInputStream() ) ).getAsJsonObject();
-                        tagName = json.get( "tag_name" ).getAsString();
-                        
-                        int latestVersion = Integer.parseInt( tagName.substring( 1, tagName.length() ) );
+                        int latestVersion = Integer.parseInt( new BufferedReader( new InputStreamReader( con.getInputStream() ) ).readLine() );
                         
                         if ( latestVersion > currentVersion )
                         {
                             System.err.println("*** Warning, this build is outdated ***");
-                            System.err.println("*** Please download a new build from https://github.com/HexagonMC/BungeeCord/releases ***");
+                            System.err.println("*** Please download a new build from https://ci.jumpy91.de/job/MineCord ***");
                             System.err.println("*** You will get NO support regarding this build ***");
                             System.err.println("*** Server will start in 10 seconds ***");
                             Thread.sleep(TimeUnit.SECONDS.toMillis(10));
