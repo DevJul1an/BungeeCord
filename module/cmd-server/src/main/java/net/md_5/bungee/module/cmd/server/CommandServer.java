@@ -5,17 +5,18 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import java.util.Map;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
-import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.plugin.Command;
-import net.md_5.bungee.api.plugin.TabExecutor;
-import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.config.ServerInfo;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.event.ServerConnectEvent;
+import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.api.plugin.TabExecutor;
 
 /**
  * Command to list and switch a player between available servers.
@@ -50,8 +51,8 @@ public class CommandServer extends Command implements TabExecutor
                     int count = server.getPlayers().size();
                     serverTextComponent.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT,
                             new ComponentBuilder( count + ( count == 1 ? " player" : " players" ) + "\n" )
-                            .append( "Click to connect to the server" ).italic( true )
-                            .create() ) );
+                                    .append( "Click to connect to the server" ).italic( true )
+                                    .create() ) );
                     serverTextComponent.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/server " + server.getName() ) );
                     serverList.addExtra( serverTextComponent );
                     first = false;
@@ -75,7 +76,7 @@ public class CommandServer extends Command implements TabExecutor
                 player.sendMessage( ProxyServer.getInstance().getTranslation( "no_server_permission" ) );
             } else
             {
-                player.connect( server );
+                player.connect( server, ServerConnectEvent.Reason.COMMAND );
             }
         }
     }

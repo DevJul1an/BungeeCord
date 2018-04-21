@@ -32,11 +32,7 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.Connection.Unsafe;
 import net.md_5.bungee.api.connection.PendingConnection;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.LoginEvent;
-import net.md_5.bungee.api.event.PlayerHandshakeEvent;
-import net.md_5.bungee.api.event.PostLoginEvent;
-import net.md_5.bungee.api.event.PreLoginEvent;
-import net.md_5.bungee.api.event.ProxyPingEvent;
+import net.md_5.bungee.api.event.*;
 import net.md_5.bungee.chat.ComponentSerializer;
 import net.md_5.bungee.http.HttpClient;
 import net.md_5.bungee.jni.cipher.BungeeCipher;
@@ -524,7 +520,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
                                 server = bungee.getServerInfo( listener.getDefaultServer() );
                             }
 
-                            userCon.connect( server, null, true );
+                            userCon.connect( server, null, true, ServerConnectEvent.Reason.JOIN_PROXY );
 
                             thisState = State.FINISHED;
                         }
